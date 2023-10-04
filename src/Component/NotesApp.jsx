@@ -115,7 +115,7 @@ const NotesApp = () => {
           <Navigation Logout={onLogOut} user={authedUser.name}/>
         </header>
         <Routes>
-          <Route path='/' element={<HomeWrapper/>}/>
+          <Route path='NoteSave-Apps-2.0/' element={<HomeWrapper/>}/>
           <Route path='/archive' element={<ArchiveWrapper />}/>
           <Route path='/note/:id' element={<DetailPage />}/>
           <Route path='/*' element={<NotFound />}/>
