@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { Link, Route, Routes } from "react-router-dom";
+import { Link, Route, Routes, useNavigate } from "react-router-dom";
 import AddNotes from "../pages/AddNotes";
 import ArchiveWrapper from "../pages/Arcvhive";
 import DetailPage from "../pages/DetailPage";
@@ -53,6 +53,7 @@ const NotesApp = () => {
   }, [Theme])
     const [authedUser, setAuthedUser] = useState(null);
     const [initializing,setInitializing] = useState(true);
+    const navigate = useNavigate();
     const onLoginSuccess = async ({accessToken}) => {
       putAccessToken(accessToken)
       const {data} = await getUserLogged()
@@ -72,7 +73,8 @@ const NotesApp = () => {
     }, []);
     const onLogOut = () => {
       setAuthedUser(null);
-      putAccessToken('')
+      putAccessToken('');
+      navigate('/')
     }
     if (initializing) {
       return <ThemeProvider value={ThemeContextValue}>
@@ -118,8 +120,8 @@ const NotesApp = () => {
           <Route path='/' element={<HomeWrapper/>}/>
           <Route path='/archive' element={<ArchiveWrapper />}/>
           <Route path='/note/:id' element={<DetailPage />}/>
-          <Route path='/*' element={<NotFound />}/>
           <Route path='/AddNotes' element={<AddNotes />}/>
+          <Route path='/*' element={<NotFound />}/>
         </Routes>
       </div>
       </ThemeProvider>

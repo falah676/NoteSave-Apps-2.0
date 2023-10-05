@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
-import CardList from "../Components/CardList";
-import SearchBar from "../Components/SearchBar";
-import { FloatingButton } from "../Components/FloatingButton";
+import CardList from "../Component/CardList";
+import SearchBar from "../Component/SearchBar";
+import { FloatingButton } from "../Component/FloatingButton";
 import { useSearchParams } from "react-router-dom";
 import PropTypes from "prop-types";
 import { getActiveNotes } from "../utils/network-data";
 import { LocaleContext, ThemeContext } from "../context/NoteContext";
-import LoadingBar from "../Components/LoadingBar";
+import LoadingBar from "../Component/LoadingBar";
 
 const HomeWrapper = () => {
     const {Theme} = useContext(ThemeContext);

@@ -5,7 +5,7 @@ import NotesApp from './Component/NotesApp';
 function App() {
   return (
     <div className="app-container">
-    <BrowserRouter>
+    <BrowserRouter basename='NoteSave-Apps-2.0/'>
       <NotesApp />
     </BrowserRouter>
     </div>
